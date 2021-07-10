@@ -1,0 +1,109 @@
+<!-- Cabeçalho - Inicio -->
+
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+<head>
+<meta charset= "ISO-8859-1">
+<title>Relatório de acesso</title>
+
+<!-- Aqui eu importo o arquivo css -->
+<link rel= "stylesheet" type= "text/css" href= "css/style.css" >
+
+</head>
+
+<body>
+
+	<!--Lembrando que a tag HEADER representa o topo de uma pagina.  -->
+	<header>
+	<!-- Imagem da logomarca -->
+	<img alt="Logomarca" src="images/logomarcaGeraFit.png">
+	
+	<!-- Menu -->
+		<nav>
+			<div>
+				<a href= "cadastrarAluno.html">Cadastrar aluno</a><br>
+				<a href= "pesquisarAluno.html">Pesquisar aluno</a><br>
+				<a href= "registrarAcesso.html">Registrar acesso</a><br>
+				<a href= "relatorioDeAcesso.html">Relatório de acesso</a><br>
+				<a href= "relatorioDeSituacao.html">Relatório de situação</a><br>
+			</div>
+		</nav>
+	</header>
+	<!-- Cabeçalho - Fim -->
+	
+	
+		<h1>Relatório de acesso</h1>
+	
+		<div id= "infoMessage">
+		(Aqui vai uma eventual mensagem do sistema confirmando sucesso ou erro.)
+		</div>
+		<br>
+		
+		<form>
+		<fieldset>
+		<legend>Parâmetros de acesso</legend>
+		
+					<label for="id">Id:</label><br><!-- Com o FOR eu vinculo o label ao id ID abaixo -->
+					<input type= "text" name= "id" id= "id"><br>
+					
+					<label for="dataInicial">Data inicial:</label><br><!-- Com o FOR eu vinculo o label ao id DATA INICIAL abaixo -->
+					<input type= "date" name= "dataInicial" id= "dataInicial"><br>
+					
+					<label for="dataFinal">Data final:</label><br><!-- Com o FOR eu vinculo o label ao id DATA FINAL abaixo -->
+					<input type= "date" name= "dataFinal" id= "dataFinal">
+		</fieldset>
+		
+		<br>
+		<input type= "submit" value= "Gerar relatório">
+		
+		</form>
+		
+		<table>
+			<tr>
+				<td>Id</td>
+				<td>Nome</td>
+				<td>Entrada</td>
+				<td>Saída</td>
+				<td>Duração</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>Leandro</td>
+				<td>05/07/2021 19:00:00</td>
+				<td>05/07/2021 20:00:00</td>
+				<td>01:00:00</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>Leandro</td>
+				<td>05/07/2021 19:00:00</td>
+				<td>05/07/2021 20:00:00</td>
+				<td>01:00:00</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>Leandro</td>
+				<td>05/07/2021 19:00:00</td>
+				<td>05/07/2021 20:00:00</td>
+				<td>01:00:00</td>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>Leandro</td>
+				<td>05/07/2021 19:00:00</td>
+				<td>05/07/2021 20:00:00</td>
+				<td>01:00:00</td>
+			</tr>
+		</table>
+	
+<!-- Rodapé - Inicio -->	
+</body>
+
+</html>
+<!-- Rodapé - Fim -->
+

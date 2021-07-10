@@ -1,0 +1,63 @@
+<!-- Cabeçalho - Inicio -->
+
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+<head>
+<meta charset= "ISO-8859-1">
+<title>Registrar acesso</title>
+
+<!-- Aqui eu importo o arquivo css -->
+<link rel= "stylesheet" type= "text/css" href= "css/style.css">
+
+</head>
+
+<body>
+
+	<!--Lembrando que a tag HEADER representa o topo de uma pagina.  -->
+	<header>
+	<!-- Imagem da logomarca -->
+	<img alt="Logomarca" src="images/logomarcaGeraFit.png">
+	
+	<!-- Menu -->
+		<nav>
+			<div>
+				<a href= "cadastrarAluno.html">Cadastrar aluno</a><br>
+				<a href= "pesquisarAluno.html">Pesquisar aluno</a><br>
+				<a href= "registrarAcesso.html">Registrar acesso</a><br>
+				<a href= "relatorioDeAcesso.html">Relatório de acesso</a><br>
+				<a href= "relatorioDeSituacao.html">Relatório de situação</a><br>
+			</div>
+		</nav>
+	</header>
+	<!-- Cabeçalho - Fim -->
+	
+		<h1>Registrar acesso</h1>
+	
+		<div id= "infoMessage">
+		(Aqui vai uma eventual mensagem do sistema confirmando sucesso ou erro.)
+		</div>
+		<br>
+		
+		<form>
+		<fieldset>
+		<legend>Parâmetros de acesso</legend>
+		
+					<label for="id">Id:</label><br><!-- Com o FOR eu vinculo o label ao id ID abaixo -->
+					<input type= "text" name= "id" id= "id"><br>
+					
+					<label for="rg">Rg:</label><br><!-- Com o FOR eu vinculo o label ao id RG abaixo -->
+					<input type= "text" name= "rg" id= "rg"><br>
+		</fieldset>
+		
+		<br>
+		<input type= "submit" value= "Registrar acesso">
+		
+		</form>
+	
+<!-- Rodapé - Inicio -->	
+</body>
+
+</html>
+<!-- Rodapé - Fim -->
+
