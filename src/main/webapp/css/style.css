@@ -1,0 +1,180 @@
+*
+{
+	font-family: "Arial" /*Com o asterisco eu defino a fonte gerar do sistema.*/
+}
+
+body
+{
+	background-color: #00649c; /*Aqui defino a cor de fundo geral do sistema.*/
+	text-align:center; /*Aqui definoo alinhamento do texto geralno centro.*/
+}
+
+img
+{
+	border-radius: 10px; /*Define as bordas arredondadas.*/
+}
+
+nav a /*Formatação do menu*/
+{
+	color: #ffffff;/*Defino a cor dos textos do menu.*/
+	text-decoration: none; /*Retiro os sublinhados dos links do menu.*/
+	font-weight: bold; /*Deixo os links em negrito.*/
+	text-transform: uppercase; /*Deixo todas letras maiusculas.*/
+	font-size: 14px; /*Configuro o tamanho da fonte.*/
+}
+
+nav a:hover /*hover do menu*/
+{
+	text-decoration: underline; /*Aplico os sublinhados dos links do menu.*/
+}
+
+h1 /*Titulo*/
+{
+	color: #8bbf18; /*Defino a cor do texto do titulo.*/
+	background-color: #ffffff; /*Defino a cor de fundo do titulo.*/
+	text-transform: uppercase; /*Deixo todas letras maiusculas.*/
+	font-style: italic; /*Define o estilo italico na fonte do texto.*/
+	font-size: 20px; /*Configuro o tamanho da fonte.*/
+	padding: 5px;/*Ajusto o tamanho da caixa referente ao texto.*/
+	width: 400px; /*Defino o tamanho do fundo*/
+	border-left: 10px solid #8bbf18; /*Defino a cor da borda do lado esquerdo.*/
+	border-right: 10px solid #8bbf18; /*Defino a cor da borda do lado direito.*/
+	border-top: 2px solid #8bbf18; /*Defino a cor da borda do topo.*/
+	border-bottom: 2px solid #8bbf18; /*Defino a cor da borda de baixo.*/
+	border-radius: 30px; /*Define as bordas arredondadas no titulo.*/
+}
+
+h1, /*Div de texto dos titulos*/
+div#infoMessage,
+fieldset,
+table
+{
+	margin-left: auto;/*Vai centralizar*/
+	margin-right: auto;/*Vai centralizar*/
+}
+
+div#infoMessage
+{
+	background-color: #ffcc00;/*Define a cor do div somente da mensagem de erro ou sucesso com o #.*/
+	width: 400px; /*Defino o tamanho do fundo*/
+	border-radius: 5px; /*Define as bordas arredondadas.*/
+	padding: 10px;/*Define o tamanho do espaço da caixa de mensagem de erro ou sucesso.*/
+	color: #d40000;/*Define a cor da fonte no texto de erro ou sucesso.*/
+}
+
+fieldset
+{
+	background-color: #ffffff; /*Defino a cor de fundo da caixa fieldset.*/
+	width: 400px; /*Defino o tamanho do fundo*/
+	text-align:left; /*Aqui defino o alinhamento do texto geral na esquerda.*/
+	border-radius: 5px; /*Define as bordas arredondadas.*/
+	border: 0px;/*Corta a borda, da um acabamento.*/
+}
+
+legend
+{
+	background-color: #ffffff; /*Defino a cor de fundo da caixa fieldset.*/
+	border-radius: 25px; /*Define as bordas arredondadas.*/
+	padding-top: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+	font-weight: bold; /*Deixo os links em negrito.*/
+}
+
+legend,
+label
+{
+	color: #00649c;/*Define a cor do texto nas fichas de cadastro.*/
+}
+
+input,
+select
+{
+	border: 1px solid #00649c;/*Define a borda e cores nos campos a preencher.*/
+	margin-bottom: 7px;/*Define o espaço entre campos na vertical.*/
+}
+
+input[type=text]#nome,
+input[type=text]#rua,
+input[type=email]
+{
+	width: 98%;/*Ajusta o tamanho do campo Nome, Rua.*/
+}
+
+input[type=tel]#dddCelular,
+input[type=tel]#dddFixo,
+input[type=tel]#ddd
+{
+	width: 30px;/*Ajusta o tamanho do campo celular ddd, fixo ddd, e ddd.*/
+}
+
+input[type=tel]#numeroCelular,
+input[type=tel]#numeroFixo,
+input[type=tel]#numero
+{
+	width: 90px;/*Ajusta o tamanho do campo numeroCelular, numeroFixo, e numero.*/
+}
+
+/*Estilos dos botões.*/
+input[type=button],
+input[type=submit]
+{
+	background-color: #8bbf18;
+	border-bottom: 3px solid #5b7b1d;
+	border-top: 1px solid #5b7b1d;
+	border-right: 1px solid #5b7b1d;
+	border-left: 1px solid #5b7b1d;
+	color: #ffffff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 5px;
+	padding: 5px 8px;
+}
+
+/*Estilos do hover dos botões.*/
+input[type=button]:hover,
+input[type=submit]:hover
+{
+	background-color: #a0de1c;/*Cor do efeito no hover*/
+	border-bottom: 3px solid #8bbf18;
+}
+
+table
+{
+	background-color: #ffffff;
+	font-size: 14px;
+	border-spacing: 1px;/**/
+	border-collapse: separate;/*Separa*/
+}
+
+/*Linhas dos titulos das tabelas.*/
+th
+{
+	background-color: #5b7b1d;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 3px;
+}
+
+/*Intercalar linhas em impares*/
+tr:nth-child(even)
+{
+	background-color: #f3e6f7;
+}
+
+/*Intercalar linhas em pares*/
+tr:nth-child(odd)
+{
+	background-color: #ffffff;
+}
+
+/*Todas as celulas das tabelas*/
+td
+{
+	padding: 3px;
+}
+
+
+
+
+
