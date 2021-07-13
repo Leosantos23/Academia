@@ -2,7 +2,7 @@ package br.com.gerafit.util;
 
 import javax.ejb.ApplicationException;
 
-@ApplicationException
+@ApplicationException//Herda da classe exception, do pacote java lang
 public class ValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
