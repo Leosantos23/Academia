@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	lang="pt-br">
+	
+<head jsf:id="head">
+
+<meta charset= "ISO-8859-1"/>
+<title>Academia</title>
+
+<!-- Aqui eu importo o arquivo css -->
+<link rel= "stylesheet" type= "text/css" href= "css/style.css"/>
+
+</head>
+
+<body>
+
+	<!--Lembrando que a tag HEADER representa o topo de uma pagina.  -->
+	<!-- Cabecalho inicio -->
+	<header>
+	<!-- Imagem da logomarca -->
+	<img alt="Logomarca" src="images/logomarcaGeraFit.png"/>
+	
+		<nav>
+			<div>
+				<a jsf:outcome= "cadastrarAluno">Cadastrar aluno</a><br/>
+				<a jsf:outcome= "pesquisarAluno">Pesquisar aluno</a><br/>
+				<a jsf:outcome= "registrarAcesso">Registrar acesso</a><br/>
+				<a jsf:outcome= "relatorioDeAcesso">Relatório de acesso</a><br/>
+				<a jsf:outcome= "relatorioDeSituacao">Relatório de situação</a><br/>
+			</div>
+		</nav>
+	</header>
+	<!-- Cabeçalho - Fim -->
+	
+	<!-- Aqui atribuo a todos layouts -->
+	<ui:insert name= "conteudo"/>		
+	
+</body>
+
+</html>
+
+
