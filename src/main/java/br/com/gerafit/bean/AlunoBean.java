@@ -25,7 +25,7 @@ public class AlunoBean implements Serializable {
 		this.aluno = aluno;
 	}
 	
-	public String gravar() {
+	public String salvar() {
 		//alunoService.createOrUpdate(aluno);
 		//facesContext.addMessage(null, new FacesMessage("Dados gravados com sucesso"));
 		System.out.println("ALUNO ==>" + aluno);
