@@ -138,4 +138,10 @@ public class Aluno implements Serializable {
 		return Objects.equals(matricula, other.matricula);
 	}
 	
+	//Metodo de gerar a matricula, que tem uma logica especifica.
+	
+	public void gerarMatricula() {
+		//TODO: Colocar a logica aqui posteriormente.
+		this.matricula = "00000001";
+	}
 }
