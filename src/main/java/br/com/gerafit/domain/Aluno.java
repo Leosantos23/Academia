@@ -2,6 +2,7 @@ package br.com.gerafit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.Year;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import br.com.gerafit.util.StringUtils;
 
 @Entity//Aqui falo que estado sera uma entidade ou tabela do banco de dados.
 @Table(name= "ALUNO")//Aqui faco o mapeamento da classe para a tabela.
@@ -140,8 +143,21 @@ public class Aluno implements Serializable {
 	
 	//Metodo de gerar a matricula, que tem uma logica especifica.
 	
-	public void gerarMatricula() {
-		//TODO: Colocar a logica aqui posteriormente.
-		this.matricula = "00000001";
+	public void gerarMatricula(String maxMatricula) {
+		
+		Year year = Year.now();
+		
+		//Tratar a situacao.
+		if(maxMatricula == null) {
+			
+			maxMatricula = year + StringUtils.leftZeroes(0, 4);
+		}
+		//Tratamento do sequencial, convertendo a string em inteiro.
+		int sequencial = Integer.parseInt(maxMatricula.substring(4));
+		sequencial ++;
+		
+		//Montar o novo numero de matricula
+		this.matricula = year + StringUtils.leftZeroes(sequencial, 4);
+
 	}
 }

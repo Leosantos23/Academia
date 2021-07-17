@@ -1,5 +1,7 @@
 package br.com.gerafit.domain;
 
+import java.time.Year;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,14 +37,18 @@ public class AlunoRepository {
 		if (aluno != null) {
 			em.remove(aluno);
 		}
+		
+	}
+		
+		//Metodo para tratamento do numero da matricula
+		public String getMaxMatriculaAno() {//Pega a maior matricula do ano.
+			//Executo o JPQL
+			return em.createQuery("SELECT MAX(a.matricula) FROM Aluno a WHERE a.matricula LIKE :ano", String.class)
+					
+				.setParameter("ano", Year.now() + "%")
+				.getSingleResult();//Retorna diretamente somente o que eu quero.
+		}
+
 
 	}
 	
-	
-
-
-	
-	
-
-
-}
