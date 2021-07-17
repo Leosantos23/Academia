@@ -47,6 +47,12 @@ public class AlunoService {
 			
 		}
 		
+		//Busca por matricula
+		public Aluno findByMatricula(String matricula) {
+			return alunoRepository.findByMatricula(matricula);
+		}
+
+		
 			
 	}
 
