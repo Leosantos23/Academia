@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	lang="pt-br">
+	
+<!-- Aqui estou dizendo que vou usar o template de layout -->
+<ui:composition template= "layout.xhtml">
+	<ui:define name="conteudo">
+	
+		<!-- Pesquisa de aluno -->
+		<h1>Pesquisar aluno</h1>
+	
+	    <!--Aqui dica a caixa de mensagens de erro ou sucesso na aplicacao  -->
+		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
+		<div id= "infoMessage">
+			<h:messages />
+		</div>
+		</h:panelGroup>
+		
+		<br/>
+		
+		<form jsf:id= "form">
+		<fieldset>
+		<legend>Parâmetros da pesquisa</legend>
+		
+					<!-- Com o FOR eu vinculo o label ao id ID abaixo -->
+					<label for="id">Id:</label><br/>
+					<input type= "text" name= "id" id= "id"/><br/>
+					
+					<!-- Com o FOR eu vinculo o label ao id NOME abaixo -->
+					<label for="nome">Nome:</label><br/>
+					<input type= "text" name= "nome" id= "nome"/><br/>
+					
+					<!-- Com o FOR eu vinculo o label ao id RG abaixo -->
+					<label for="rg">Rg:</label><br/>
+					<input type= "text" name= "rg" id= "rg"/><br/>
+					
+					<label for="ddd">Telefone:</label><br/>
+					<input type= "tel" name= "ddd" id= "ddd"/>&#160;
+					<input type= "tel" name= "numero" id= "numero"/>
+		</fieldset>
+		
+		<br/>
+		<input type= "submit" value= "Pesquisar"/>
+		
+		</form>
+		
+		<table>
+		
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Rg</th>
+				<th>E-mail</th>
+				<th>Situação</th>
+				<th>Ações</th>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>Leandro</td>
+				<td>412.211</td>
+				<td>leandro@leandro.com</td>
+				<td>ativo</td>
+				
+				<td>
+				<input type= "button" value= "Editar"/>
+				<input type= "button" value= "Excluir"/>
+				</td>
+			</tr>
+			
+		</table>
+	
+		</ui:define>
+		</ui:composition>
+</html>
+
