@@ -1,5 +1,8 @@
 package br.com.gerafit.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import br.com.gerafit.domain.Aluno;
@@ -51,11 +54,27 @@ public class AlunoService {
 		public Aluno findByMatricula(String matricula) {
 			return alunoRepository.findByMatricula(matricula);
 		}
-
 		
+		//Lista de alunos para funcionar a pesquisa
+		public List<Aluno> listAlunos(String matricula, String nome, Integer rg, Integer telefone){
+			
+			Aluno aluno = alunoRepository.findByMatricula(matricula);
+			List<Aluno> alunos = new ArrayList<Aluno>();	
+			alunos.add(aluno);
+			return alunos;
+		}
+		
+		//Deletar
+		public void delete(String matricula){
+			
+			alunoRepository.delete(matricula);
+			
+		}
 			
 	}
-
+		
+			
+	
 
 	
 

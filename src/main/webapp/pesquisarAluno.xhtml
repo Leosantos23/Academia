@@ -14,7 +14,7 @@
 		<!-- Pesquisa de aluno -->
 		<h1>Pesquisar aluno</h1>
 	
-	    <!--Aqui dica a caixa de mensagens de erro ou sucesso na aplicacao  -->
+	    <!--Aqui fica a caixa de mensagens de erro ou sucesso na aplicacao  -->
 		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
 		<div id= "infoMessage">
 			<h:messages />
@@ -28,31 +28,30 @@
 		<legend>Parâmetros da pesquisa</legend>
 		
 					<!-- Com o FOR eu vinculo o label ao id ID abaixo -->
-					<label for="id">Id:</label><br/>
-					<input type= "text" name= "id" id= "id"/><br/>
+					<label for="id">Matrícula:</label><br/>
+					<input type= "text" jsf:value= "#{pesquisaAlunoBean.matricula}" id= "id"/><br/>
 					
 					<!-- Com o FOR eu vinculo o label ao id NOME abaixo -->
 					<label for="nome">Nome:</label><br/>
-					<input type= "text" name= "nome" id= "nome"/><br/>
+					<input type= "text" jsf:value= "#{pesquisaAlunoBean.nome}" id= "nome"/><br/>
 					
 					<!-- Com o FOR eu vinculo o label ao id RG abaixo -->
 					<label for="rg">Rg:</label><br/>
-					<input type= "text" name= "rg" id= "rg"/><br/>
+					<input type= "text" jsf:value= "#{pesquisaAlunoBean.rg}" id= "rg"/><br/>
 					
-					<label for="ddd">Telefone:</label><br/>
-					<input type= "tel" name= "ddd" id= "ddd"/>&#160;
-					<input type= "tel" name= "numero" id= "numero"/>
+					<label for="numero">Telefone:</label><br/>
+					<input type= "tel" jsf:value= "#{pesquisaAlunoBean.telefone}" id= "numero"/>
 		</fieldset>
 		
 		<br/>
-		<input type= "submit" value= "Pesquisar"/>
+		<input type= "submit" value= "Pesquisar" jsf:action="#{pesquisaAlunoBean.pesquisar}"/>
 		
-		</form>
 		
+		<h:panelGroup rendered= "#{not empty pesquisaAlunoBean.alunos}">
 		<table>
 		
 			<tr>
-				<th>Id</th>
+				<th>Matrícula</th>
 				<th>Nome</th>
 				<th>Rg</th>
 				<th>E-mail</th>
@@ -60,21 +59,24 @@
 				<th>Ações</th>
 			</tr>
 			
+			<ui:repeat var="a" value="#{pesquisaAlunoBean.alunos}">
 			<tr>
-				<td>1</td>
-				<td>Leandro</td>
-				<td>412.211</td>
-				<td>leandro@leandro.com</td>
-				<td>ativo</td>
+				<td>#{a.matricula}</td>
+				<td>#{a.nome}</td>
+				<td>#{a.rg}</td>
+				<td>#{a.email}</td>
+				<td>#{a.situacao}</td>
 				
 				<td>
-				<input type= "button" value= "Editar"/>
-				<input type= "button" value= "Excluir"/>
+				<input type= "button" value= "Editar" jsf:outcome= "cadastrarAluno?matricula=#{a.matricula}"/> &#160;
+				<input type= "submit" value= "Excluir"  onclick= "return confirm('Deseja realmente excluir #{a.matricula}?')" jsf:action= "#{pesquisaAlunoBean.excluir(a.matricula)}"/>
 				</td>
 			</tr>
+			</ui:repeat>
 			
 		</table>
-	
+		</h:panelGroup>
+		</form>
 		</ui:define>
 		</ui:composition>
 </html>
