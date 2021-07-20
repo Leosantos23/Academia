@@ -14,39 +14,39 @@ import br.com.gerafit.service.DataService;
 
 //A funcao desta classe e carregar os dados geralmemnte especificas a caixas de selecoes,como sexo, situacao e estados.
 
-@Named//
+@Named //
 @ApplicationScoped
 public class DataBean implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@EJB
 	private DataService dataService;
 
-	//Metodo que retornara a lista de sexos.
+	// Metodo que retornara a lista de sexos.
 	public Sexo[] getSexos() {
 		return dataService.getSexos();
 	}
-	//Metodo que retornara a lista de situacoes.
+
+	// Metodo que retornara a lista de situacoes.
 	public Situacao[] getSituacoes() {
 		return dataService.getSituacoes();
 	}
 
-	//Metodo que retornara a lista de estados.
+	// Metodo que retornara a lista de estados.
 	public List<Estado> getEstados() {
-		
+
 		return dataService.listEstados();
-		
-	}
-	
-	//Metodo para formatacao do telefone fixo ou celular
-	public String formatTelefone(Integer ddd, Integer numero) {
-		if (ddd == null || numero == null) { 
-			return "";
-		}
-		
-		return "(" + ddd + ") " + numero;
+
 	}
 
+	// Metodo para formatacao do telefone fixo ou celular
+	public String formatTelefone(Integer ddd, Integer numero) {
+		if (ddd == null || numero == null) {
+			return "";
+		}
+
+		return "(" + ddd + ") " + numero;
+	}
 
 }
