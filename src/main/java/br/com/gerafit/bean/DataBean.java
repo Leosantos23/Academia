@@ -38,5 +38,15 @@ public class DataBean implements Serializable {
 		return dataService.listEstados();
 		
 	}
+	
+	//Metodo para formatacao do telefone fixo ou celular
+	public String formatTelefone(Integer ddd, Integer numero) {
+		if (ddd == null || numero == null) { 
+			return "";
+		}
+		
+		return "(" + ddd + ") " + numero;
+	}
+
 
 }

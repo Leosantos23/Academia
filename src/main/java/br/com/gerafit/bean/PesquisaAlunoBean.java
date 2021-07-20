@@ -2,16 +2,16 @@ package br.com.gerafit.bean;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
-
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.annotation.RequestParameterMap;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.gerafit.domain.Aluno;
 import br.com.gerafit.service.AlunoService;
+import br.com.gerafit.util.ValidationException;
 
 
 @Named
@@ -23,6 +23,10 @@ public class PesquisaAlunoBean implements Serializable {
 
 	@EJB
 	private AlunoService alunoService;
+	
+	@Inject
+	private FacesContext facesContext;
+
 	
 	//atributos
 	private String matricula;
@@ -72,10 +76,14 @@ public class PesquisaAlunoBean implements Serializable {
 	
 	//Metodo pesquisar
 	public String pesquisar() {
-		
-		alunos = alunoService.listAlunos(matricula, nome, rg, telefone);
+		try {
+			alunos = alunoService.listAlunos(matricula, nome, rg, telefone);
+		} catch (ValidationException e) {
+			facesContext.addMessage(null, new FacesMessage(e.getMessage()));
+		}
 		return null;
 	}
+
 	
 	//Metodo excluir
 	public String excluir(String matricula) {

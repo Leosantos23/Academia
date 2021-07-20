@@ -55,6 +55,7 @@
 				<th>Nome</th>
 				<th>Rg</th>
 				<th>E-mail</th>
+				<th>Telefone</th>
 				<th>Situação</th>
 				<th>Ações</th>
 			</tr>
@@ -65,6 +66,10 @@
 				<td>#{a.nome}</td>
 				<td>#{a.rg}</td>
 				<td>#{a.email}</td>
+				<td>
+				#{dataBean.formatTelefone(a.telefone.dddCelular,a.telefone.numeroCelular)}<br/>
+				#{dataBean.formatTelefone(a.telefone.dddFixo,a.telefone.numeroFixo)}
+				</td>
 				<td>#{a.situacao}</td>
 				
 				<td>
