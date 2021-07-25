@@ -4,6 +4,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import br.com.gerafit.domain.Aluno;
+import br.com.gerafit.domain.Aluno.Situacao;
 import br.com.gerafit.domain.AlunoRepository;
 import br.com.gerafit.util.StringUtils;
 import br.com.gerafit.util.Validation;
@@ -71,6 +72,15 @@ public class AlunoService {
 			alunoRepository.delete(matricula);
 			
 		}
+		
+		//Metodo que pegara as situacoes
+		public List<Aluno> listSituacoesAlunos(Situacao situacao) {
+			
+			//Validacao para garantir que a situacao nao esta nula
+			Validation.assertNotEmpty(situacao);
+			return alunoRepository.listSituacoesAlunos(situacao);
+		}
+
 			
 	}
 		

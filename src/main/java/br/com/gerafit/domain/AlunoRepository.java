@@ -9,6 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import br.com.gerafit.domain.Aluno.Situacao;
 import br.com.gerafit.util.StringUtils;
 
 //Classe de repositorio de dados.
@@ -119,5 +120,13 @@ public class AlunoRepository {
 			return null;
 		}
 	}
+	
+	//Metodo que lista as situacoes dos alunos
+	public List<Aluno> listSituacoesAlunos(Situacao situacao) {
+		return em.createQuery("SELECT a FROM Aluno a WHERE a.situacao = :situacao ORDER BY a.nome", Aluno.class)
+				.setParameter("situacao", situacao)
+				.getResultList();
+	}
+
 
 }

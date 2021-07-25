@@ -24,40 +24,36 @@
 			<fieldset>
 				<legend>Parâmetros da pesquisa</legend>
 
-				<label for="situacao" id="situacao">Situação:</label><br /> <select
-					name="situacao">
-					<option>Ativo</option>
-					<option>Inativo</option>
-					<option>Pendente</option>
-				</select>
+				<label for="situacao" id="situacao">Situação:</label><br /> 
+					<select jsf:value= "#{relatorioSituacoesBean.situacao}" id= "situacao" size= "0">
+					<f:selectItems value= "#{dataBean.situacoes}"/>
+				    </select>
 			</fieldset>
 
-			<br /> <input type="submit" value="Gerar relatório" />
+			<br /> <input type="submit" value="Gerar relatório"
+				jsf:action="#{relatorioSituacoesBean.gerarRelatorio}" /> <br />
 
+			<table>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Situação</th>
+					<th>Celular</th>
+					<th>Fixo</th>
+					<th>Ações</th>
+				</tr>
+
+				<tr>
+					<td>1</td>
+					<td>Andre</td>
+					<td>Ativo</td>
+					<td>62985543720</td>
+					<td>6235120818</td>
+					<td><input type="button" value="Editar" /></td>
+				</tr>
+
+			</table>
 		</form>
-
-		<br />
-
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>Nome</th>
-				<th>Situação</th>
-				<th>Celular</th>
-				<th>Fixo</th>
-				<th>Ações</th>
-			</tr>
-
-			<tr>
-				<td>1</td>
-				<td>Andre</td>
-				<td>Ativo</td>
-				<td>62985543720</td>
-				<td>6235120818</td>
-				<td><input type="button" value="Editar" /></td>
-			</tr>
-
-		</table>
 
 	</ui:define>
 </ui:composition>
