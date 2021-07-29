@@ -32,10 +32,10 @@ public class RelatorioDeAcessoBean implements Serializable {
 	private LocalDate dataInicial;
 	private LocalDate dataFinal;
 
-	// O resultado sera uma lista de acessos
+	// O resultado sera uma lista de acessos.
 	private List<Acesso> acessos;
 
-	// Getters e setters
+	// Getters e setters.
 	public String getMatricula() {
 		return matricula;
 	}
@@ -64,7 +64,7 @@ public class RelatorioDeAcessoBean implements Serializable {
 		return acessos;
 	}
 
-	// Metodo para gerar o relatorio de acessos
+	// Metodo para gerar o relatorio de acessos.
 	public String gerarRelatorio() {
 
 		// Tratar a excessao
@@ -75,17 +75,16 @@ public class RelatorioDeAcessoBean implements Serializable {
 		}
 		return null;
 	}
-	
-	//Metodo de carregar os dados do aluno
+
+	// Metodo de carregar os dados do aluno.
 	public void carregarAluno() {
-		
-		//Com este if, so vai fazer a chamada se a matricula for fornecida
+
+		// Com este if, so vai fazer a chamada se a matricula for fornecida.
 		if (!StringUtils.isEmpty(matricula)) {
-			
-			//Depois que chamo o metodo gerarRelatorio
+
+			// Depois que chamo o metodo gerarRelatorio.
 			gerarRelatorio();
 		}
 	}
-
 
 }

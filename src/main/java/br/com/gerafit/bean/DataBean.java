@@ -14,7 +14,7 @@ import br.com.gerafit.service.DataService;
 
 //A funcao desta classe e carregar os dados geralmemnte especificas a caixas de selecoes,como sexo, situacao e estados.
 
-@Named //
+@Named
 @ApplicationScoped
 public class DataBean implements Serializable {
 
@@ -40,7 +40,7 @@ public class DataBean implements Serializable {
 
 	}
 
-	// Metodo para formatacao do telefone fixo ou celular
+	// Metodo para formatacao do telefone fixo ou celular.
 	public String formatTelefone(Integer ddd, Integer numero) {
 		if (ddd == null || numero == null) {
 			return "";

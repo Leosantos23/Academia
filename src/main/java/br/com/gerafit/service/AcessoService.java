@@ -23,12 +23,12 @@ public class AcessoService {
 	// MATRICULA.
 	public TipoAcesso registrarAcesso(String matricula, Integer rg) {
 
-		// Validar os dados de entradas
+		// Validar os dados de entradas.
 		if (StringUtils.isEmpty(matricula) && rg == null) {
 			throw new ValidationException("É preciso fornecer a MATRÍCULA ou o RG do aluno!");
 		}
 
-		Aluno aluno;// Em ambos os casos abaixo, eu preciso armazenar isso em uma variavel aluno
+		Aluno aluno;// Em ambos os casos abaixo, eu preciso armazenar isso em uma variavel aluno.
 
 		if (StringUtils.isEmpty(matricula)) {
 			aluno = alunoRepository.findByRG(rg);
@@ -40,19 +40,19 @@ public class AcessoService {
 			throw new ValidationException("O aluno não foi encontrado!");
 		}
 
-		// Pego o ultimo acesso registrado do aluno
+		// Pego o ultimo acesso registrado do aluno.
 		Acesso ultimoAcesso = acessoRepository.findUltimoAcesso(aluno);
-		// Armazeno em uma variavel
+		// Armazeno em uma variavel.
 		TipoAcesso tipoAcesso;
 
-		// Verifica se teve acesso, senao ira registrar um novo acesso
+		// Verifica se teve acesso, senao ira registrar um novo acesso.
 		if (ultimoAcesso == null || ultimoAcesso.isEntradaSaidaPreenchidas()) {
 			ultimoAcesso = new Acesso();
 			ultimoAcesso.setAluno(aluno);
 			tipoAcesso = ultimoAcesso.registrarAcesso();
 			acessoRepository.store(ultimoAcesso);
 
-		// Apenas atualiza o acesso,pois ja tem registro de entrada no sistema
+			// Apenas atualiza o acesso,pois ja tem registro de entrada no sistema.
 		} else {
 			tipoAcesso = ultimoAcesso.registrarAcesso();
 		}

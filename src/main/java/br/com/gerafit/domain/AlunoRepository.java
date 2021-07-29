@@ -51,7 +51,7 @@ public class AlunoRepository {
 
 	}
 
-	// Metodo para tratamento do numero da matricula
+	// Metodo para tratamento do numero da matricula.
 	public String getMaxMatriculaAno() {// Pega a maior matricula do ano.
 		// Executo o JPQL
 		return em.createQuery("SELECT MAX(a.matricula) FROM Aluno a WHERE a.matricula LIKE :ano", String.class)
@@ -59,13 +59,13 @@ public class AlunoRepository {
 				.setParameter("ano", Year.now() + "%").getSingleResult();// Retorna diretamente somente o que eu quero.
 	}
 
-	// Metodo lista de alunos
+	// Metodo lista de alunos.
 	public List<Aluno> listAlunos(String matricula, String nome, Integer rg, Integer telefone) {
 
-		// Crio a string de jpql
+		// Crio a string de jpql.
 		StringBuilder jpql = new StringBuilder("SELECT a FROM Aluno a WHERE ");
 
-		// Condicoes
+		// Condicoes.
 		if (!StringUtils.isEmpty(matricula)) {
 			jpql.append("a.matricula = :matricula AND ");
 		}
@@ -115,7 +115,7 @@ public class AlunoRepository {
 		return q.getResultList();
 	}
 
-	// Busca por RG
+	// Busca por RG.
 	public Aluno findByRG(Integer rg) {
 		try {
 			return em.createQuery("SELECT a FROM Aluno a WHERE a.rg = :rg", Aluno.class).setParameter("rg", rg)
@@ -125,47 +125,47 @@ public class AlunoRepository {
 		}
 	}
 
-	// Metodo que lista as situacoes dos alunos
+	// Metodo que lista as situacoes dos alunos.
 	public List<Aluno> listSituacoesAlunos(Situacao situacao) {
 		return em.createQuery("SELECT a FROM Aluno a WHERE a.situacao = :situacao ORDER BY a.nome", Aluno.class)
 				.setParameter("situacao", situacao).getResultList();
 	}
 
-	// Metodo que vai fazer a busca no banco de dados
+	// Metodo que vai fazer a busca no banco de dados.
 	public List<Acesso> listAcessosAlunos(String matricula, LocalDate dataInicial, LocalDate dataFinal) {
 
-		// Abaixo terei de montar a query JPQL dinamicamente
+		// Abaixo terei de montar a query JPQL dinamicamente.
 		StringBuilder jpql = new StringBuilder("SELECT a FROM Acesso a WHERE ");
 
-		// Ver se a matricula foi fornecida, verifica se a matricula nao esta vazia
+		// Ver se a matricula foi fornecida, verifica se a matricula nao esta vazia.
 		if (!StringUtils.isEmpty(matricula)) {
 			jpql.append("a.aluno.matricula = :matricula AND ");
 		}
-		// Verifica se a data inicial e diferente de nula
+		// Verifica se a data inicial e diferente de nula.
 		if (dataInicial != null) {
 			jpql.append("a.entrada >= :entradaInicio AND ");
 		}
-		// Verifica se a data final e diferente de nula
+		// Verifica se a data final e diferente de nula.
 		if (dataFinal != null) {
 			jpql.append("a.saida <= :saidaFim AND ");
 		}
-		// Usando a estrategia do 1=1, e ordenando por ordem de data de entrada
+		// Usando a estrategia do 1=1, e ordenando por ordem de data de entrada.
 		jpql.append("1 = 1 ORDER BY a.entrada");
 
 		// Crio minha typed query
 		TypedQuery<Acesso> q = em.createQuery(jpql.toString(), Acesso.class);
 
-		// Setar os parametros com estas condicoes
+		// Setar os parametros com estas condicoes.
 		if (!StringUtils.isEmpty(matricula)) {
 			q.setParameter("matricula", matricula);
 		}
 
 		/*
 		 * Lembrando que o local date time pega a data e o horario, ja a local time pega
-		 * apenas o horario, e terei de colocar os parametros de horas
+		 * apenas o horario, e terei de colocar os parametros de horas.
 		 */
 
-		// Comparar as datas e horarios
+		// Comparar as datas e horarios.
 		if (dataInicial != null) {
 			LocalDateTime ldt = LocalDateTime.of(dataInicial, LocalTime.of(0, 0, 0));
 			q.setParameter("entradaInicio", ldt);

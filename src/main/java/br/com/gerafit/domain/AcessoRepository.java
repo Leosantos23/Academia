@@ -15,7 +15,7 @@ public class AcessoRepository {
 	@PersistenceContext
 	private EntityManager em;
 
-	// Metodo que registra o ultimo acesso do aluno
+	// Metodo que registra o ultimo acesso do aluno.
 	public Acesso findUltimoAcesso(Aluno aluno) {
 		try {
 			return em
@@ -28,7 +28,7 @@ public class AcessoRepository {
 		}
 	}
 
-	// Metodo que manda gravar no banco de dados
+	// Metodo que manda gravar no banco de dados.
 	public void store(Acesso acesso) {
 		em.persist(acesso);
 	}

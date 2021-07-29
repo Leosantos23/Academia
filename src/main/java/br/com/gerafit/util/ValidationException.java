@@ -4,7 +4,7 @@ import javax.ejb.ApplicationException;
 
 //Com esta classe tambem aplico de que entrara no catch de tratamento de pesquisa de aluno.
 
-@ApplicationException//Herda da classe exception, do pacote java lang
+@ApplicationException // Herda da classe exception, do pacote java lang.
 public class ValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

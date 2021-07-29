@@ -13,28 +13,26 @@ import br.com.gerafit.domain.Aluno;
 import br.com.gerafit.service.AlunoService;
 import br.com.gerafit.util.ValidationException;
 
-
 @Named
-@SessionScoped//Vai garantir que o bean vai ficar ativo enquanto o navegador do usuario estiver aberto.
+@SessionScoped // Vai garantir que o bean vai ficar ativo enquanto o navegador do usuario
+				// estiver aberto.
 public class PesquisaAlunoBean implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private AlunoService alunoService;
-	
+
 	@Inject
 	private FacesContext facesContext;
 
-	
-	//atributos
+	// atributos.
 	private String matricula;
 	private String nome;
 	private Integer rg;
 	private Integer telefone;
 
-	//Getters e setters
+	// Getters e setters.
 	public String getMatricula() {
 		return matricula;
 	}
@@ -71,10 +69,10 @@ public class PesquisaAlunoBean implements Serializable {
 		return alunos;
 	}
 
-	//Lista de alunos para o metodo pesquisar
+	// Lista de alunos para o metodo pesquisar.
 	private List<Aluno> alunos;
-	
-	//Metodo pesquisar
+
+	// Metodo pesquisar.
 	public String pesquisar() {
 		try {
 			alunos = alunoService.listAlunos(matricula, nome, rg, telefone);
@@ -84,14 +82,10 @@ public class PesquisaAlunoBean implements Serializable {
 		return null;
 	}
 
-	
-	//Metodo excluir
+	// Metodo excluir.
 	public String excluir(String matricula) {
 		alunoService.delete(matricula);
-		return pesquisar();//Fara uma nova pesquisa apos a exclusao.
+		return pesquisar();// Fara uma nova pesquisa apos a exclusao.
 	}
 
-	
 }
-
-	

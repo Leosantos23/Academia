@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.Duration;
 
-
 import br.com.gerafit.domain.Aluno;
 
 @Entity // Aqui falo que estado sera uma entidade ou tabela do banco de dados.
@@ -26,20 +25,20 @@ public class Acesso implements Serializable {
 	// atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Aqui falo que o ID sera sequencial e automatico.
-	@Column(name = "ID", nullable = false) // Aqui defino de como tem que ser no banco
+	@Column(name = "ID", nullable = false) // Aqui defino de como tem que ser no banco.
 	private Integer id;
 
 	@ManyToOne // Aqui falo que o aluno e muitos pra um e vice versa.
 	@JoinColumn(name = "ALUNO_ID", nullable = false) // Aqui vou unir as colunas.
 	private Aluno aluno;
 
-	@Column(name = "ENTRADA", nullable = false) // Aqui defino de como tem que ser no banco
+	@Column(name = "ENTRADA", nullable = false) // Aqui defino de como tem que ser no banco.
 	private LocalDateTime entrada;
 
-	@Column(name = "SAIDA", nullable = true) // Aqui defino de como tem que ser no banco
+	@Column(name = "SAIDA", nullable = true) // Aqui defino de como tem que ser no banco.
 	private LocalDateTime saida;
 
-	// getters e setters
+	// getters e setters.
 	public Integer getId() {
 		return id;
 	}
@@ -72,14 +71,16 @@ public class Acesso implements Serializable {
 		this.saida = saida;
 	}
 
-	// metodo to string
+	// metodo to string.
 	@Override
 	public String toString() {
 		return "Acesso [id=" + id + ", aluno=" + aluno + ", entrada=" + entrada + ", saida=" + saida + "]";
 	}
 
-	// hascode and equals, para que dois objetos possam ser comparados pelo seu
-	// conteudo, e nao pela memoria.
+	/*
+	 * hascode and equals, para que dois objetos possam ser comparados pelo seu
+	 * conteudo, e nao pela memoria.
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -97,7 +98,7 @@ public class Acesso implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-	// Metodo que verifica se as entradas ou saidas estao preenchidas
+	// Metodo que verifica se as entradas ou saidas estao preenchidas.
 	public boolean isEntradaSaidaPreenchidas() {
 		if (entrada != null && saida != null) {
 			return true;
@@ -106,22 +107,22 @@ public class Acesso implements Serializable {
 		return false;
 	}
 
-	// Metodo que registra o acesso
+	// Metodo que registra o acesso.
 	public TipoAcesso registrarAcesso() {
 
-		// Pega a data e hora do sistema, no momento do registro
+		// Pega a data e hora do sistema, no momento do registro.
 		LocalDateTime now = LocalDateTime.now();
-		// Variavel que armazena o tipo de acesso
+		// Variavel que armazena o tipo de acesso.
 		TipoAcesso tipoAcesso;
 
-		// Condicoes
+		// Condicoes.
 		if (entrada == null) {
-			// Aqui faz receber o valor da data e hora
+			// Aqui faz receber o valor da data e hora.
 			entrada = now;
 			tipoAcesso = TipoAcesso.Entrada;
 
 		} else if (saida == null) {
-			// Aqui faz receber o valor da data e hora
+			// Aqui faz receber o valor da data e hora.
 			saida = now;
 			tipoAcesso = TipoAcesso.Saida;
 
@@ -132,15 +133,15 @@ public class Acesso implements Serializable {
 		return tipoAcesso;
 
 	}
-	
-	//Metodo para calcular a duracao do aluno na academia
+
+	// Metodo para calcular a duracao do aluno na academia.
 	public String calcularDuracao() {
 		if (entrada == null || saida == null) {
 			return null;
 		}
-		//A classe Duration em java, traz este recurso de calcular tempo
+		// A classe Duration em java, traz este recurso de calcular tempo.
 		Duration d = Duration.between(entrada, saida);
-		//Formato a string com String.format
+		// Formato a string com String.format.
 		return String.format("%02d:%02d", d.toHoursPart(), d.toMinutesPart());
 	}
 

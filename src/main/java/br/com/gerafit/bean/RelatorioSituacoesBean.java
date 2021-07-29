@@ -27,12 +27,11 @@ public class RelatorioSituacoesBean implements Serializable {
 	@RequestParameterMap
 	private Map<String, String> requestParamsMap;
 
-	
 	private Situacao situacao;
 
 	private List<Aluno> alunos;
-	
-	//Getters e setters
+
+	// Getters e setters.
 	public Situacao getSituacao() {
 		return situacao;
 	}
@@ -49,7 +48,7 @@ public class RelatorioSituacoesBean implements Serializable {
 		this.alunos = alunos;
 	}
 
-	//Metodo de checar
+	// Metodo de checar.
 	public void check() {
 		String clear = requestParamsMap.get("clear");
 
@@ -59,11 +58,10 @@ public class RelatorioSituacoesBean implements Serializable {
 		}
 	}
 
-	//Metodo de gerar relatorio
+	// Metodo de gerar relatorio.
 	public String gerarRelatorio() {
 		alunos = alunoService.listSituacoesAlunos(situacao);
 		return null;
 	}
-
 
 }

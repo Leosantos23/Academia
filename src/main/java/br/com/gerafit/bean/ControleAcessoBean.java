@@ -44,11 +44,11 @@ public class ControleAcessoBean implements Serializable {
 		this.rg = rg;
 	}
 
-	// Metodo atribuido ao botao Registrar acesso
+	// Metodo atribuido ao botao Registrar acesso.
 	public String registrarAcesso() {
 
 		TipoAcesso tipoAcesso;
-		
+
 		try {
 			tipoAcesso = acessoService.registrarAcesso(matricula, rg);
 		} catch (ValidationException e) {
