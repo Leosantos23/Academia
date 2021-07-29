@@ -13,6 +13,7 @@ import javax.inject.Named;
 
 import br.com.gerafit.acesso.Acesso;
 import br.com.gerafit.service.AlunoService;
+import br.com.gerafit.util.StringUtils;
 import br.com.gerafit.util.ValidationException;
 
 @Named
@@ -74,5 +75,17 @@ public class RelatorioDeAcessoBean implements Serializable {
 		}
 		return null;
 	}
+	
+	//Metodo de carregar os dados do aluno
+	public void carregarAluno() {
+		
+		//Com este if, so vai fazer a chamada se a matricula for fornecida
+		if (!StringUtils.isEmpty(matricula)) {
+			
+			//Depois que chamo o metodo gerarRelatorio
+			gerarRelatorio();
+		}
+	}
+
 
 }

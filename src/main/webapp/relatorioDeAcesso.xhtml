@@ -10,6 +10,12 @@
 <!-- Aqui estou dizendo que vou usar o template de layout -->
 <ui:composition template="layout.xhtml">
 	<ui:define name="conteudo">
+	
+			<!-- Responsavel na funcao do botao RELATORIO DE ACESSOS,  em ALTERAR ALUNO -->
+			<f:metadata>
+				<f:viewParam name="matricula" value="#{relatorioDeAcessoBean.matricula}" />
+				<f:viewAction action="#{relatorioDeAcessoBean.carregarAluno}" />
+			</f:metadata>
 
 
 		<h1>Relatório de acesso</h1>

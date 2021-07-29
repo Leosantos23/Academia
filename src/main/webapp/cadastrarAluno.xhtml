@@ -141,8 +141,9 @@
 				</fieldset>
 				
 				<br/>
-				<input type= "submit" value= "Salvar" jsf:action= "#{alunoBean.salvar}"/>
-				<input type= "button" value= "Relatório de Acessos"/>
+				<input type= "submit" value= "Salvar" jsf:action= "#{alunoBean.salvar}"/> &#160;
+				<input type= "button" value= "Relatório de Acessos" jsf:outcome="relatorioDeAcesso?matricula=#{alunoBean.aluno.matricula}"
+					jsf:rendered="#{alunoBean.matricula != null}" />
 				
 			</form>
 			
