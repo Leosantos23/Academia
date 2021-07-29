@@ -2,8 +2,11 @@ package br.com.gerafit.bean;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.annotation.RequestParameterMap;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -25,6 +28,11 @@ public class PesquisaAlunoBean implements Serializable {
 
 	@Inject
 	private FacesContext facesContext;
+
+	// Para auxiliar no metodo clear
+	@Inject
+	@RequestParameterMap
+	private Map<String, String> requestParamsMap;
 
 	// atributos.
 	private String matricula;
@@ -86,6 +94,21 @@ public class PesquisaAlunoBean implements Serializable {
 	public String excluir(String matricula) {
 		alunoService.delete(matricula);
 		return pesquisar();// Fara uma nova pesquisa apos a exclusao.
+	}
+
+	// Metodo para checar e limpar o formulario de pesquisa de aluno.
+	public void check() {
+		String clear = requestParamsMap.get("clear");
+
+		if (clear != null && Boolean.valueOf(clear)) {
+			
+			// Faz o reset do formulario.
+			matricula = null;
+			nome = null;
+			rg = null;
+			telefone = null;
+			alunos = null;
+		}
 	}
 
 }

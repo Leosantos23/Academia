@@ -59,7 +59,7 @@ public class AlunoBean implements Serializable {
 		this.aluno = aluno;
 	}
 
-	// Getters ew setters de Titulo.
+	// getters e setters de Titulo.
 	public String getTitulo() {
 		return titulo;
 	}

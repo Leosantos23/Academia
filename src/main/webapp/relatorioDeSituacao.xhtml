@@ -9,6 +9,11 @@
 <!-- Aqui estou dizendo que vou usar o template de layout -->
 <ui:composition template="layout.xhtml">
 	<ui:define name="conteudo">
+	
+		<!-- Forcar a limpeza do formulario -->
+		<f:metadata>
+				<f:viewAction action="#{relatorioSituacoesBean.check}" />
+		</f:metadata>
 
 		<!-- Pesquisa de aluno -->
 		<h1>Relatório de situação</h1>

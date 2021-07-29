@@ -48,7 +48,7 @@ public class RelatorioSituacoesBean implements Serializable {
 		this.alunos = alunos;
 	}
 
-	// Metodo de checar.
+	// Metodo de checar e limpar a tela relatorio de situacoes.
 	public void check() {
 		String clear = requestParamsMap.get("clear");
 
