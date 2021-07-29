@@ -1,6 +1,7 @@
 package br.com.gerafit.acesso;
 
 import java.io.Serializable;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.Duration;
+
 
 import br.com.gerafit.domain.Aluno;
 
@@ -129,4 +132,16 @@ public class Acesso implements Serializable {
 		return tipoAcesso;
 
 	}
+	
+	//Metodo para calcular a duracao do aluno na academia
+	public String calcularDuracao() {
+		if (entrada == null || saida == null) {
+			return null;
+		}
+		//A classe Duration em java, traz este recurso de calcular tempo
+		Duration d = Duration.between(entrada, saida);
+		//Formato a string com String.format
+		return String.format("%02d:%02d", d.toHoursPart(), d.toMinutesPart());
+	}
+
 }

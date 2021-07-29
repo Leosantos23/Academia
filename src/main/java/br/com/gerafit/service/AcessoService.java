@@ -52,7 +52,7 @@ public class AcessoService {
 			tipoAcesso = ultimoAcesso.registrarAcesso();
 			acessoRepository.store(ultimoAcesso);
 
-			// Apenas atualiza o acesso,pois ja tem registro de entrada no sistema
+		// Apenas atualiza o acesso,pois ja tem registro de entrada no sistema
 		} else {
 			tipoAcesso = ultimoAcesso.registrarAcesso();
 		}

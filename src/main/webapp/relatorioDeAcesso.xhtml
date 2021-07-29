@@ -4,15 +4,16 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br">
+	xmlns:jsf="http://xmlns.jcp.org/jsf" 
+	lang="pt-br">
 
 <!-- Aqui estou dizendo que vou usar o template de layout -->
 <ui:composition template="layout.xhtml">
 	<ui:define name="conteudo">
-	
-	
+
+
 		<h1>Relatório de acesso</h1>
-	
+
 		<!--Aqui fica a caixa de mensagens de erro ou sucesso na aplicacao  -->
 		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
 			<div id="infoMessage">
@@ -20,51 +21,67 @@
 			</div>
 		</h:panelGroup>
 		
-		<form jsf:id= "form">
-		<fieldset>
-		<legend>Parâmetros de acesso</legend>
+		<!-- Quebra delinha -->
+		<br />
 		
-					<label for="id">Matrícula:</label><br/>
-					<!-- Com o FOR eu vinculo o label ao id ID abaixo -->
-					<input type= "text" jsf:value= "#{relatorioDeAcessoBean.matricula}" id= "id"/><br/>
-					
-					<label for="dataInicial">Data inicial:</label><br/>
-					<!-- Com o FOR eu vinculo o label ao id DATA INICIAL abaixo -->
-					<input type= "date" jsf:value= "#{relatorioDeAcessoBean.dataInicial}" id= "dataInicial">
-					<f:convertDateTime type= "localDate" pattern= "yyyy-MM-dd"/>
-					</input><br/>
-					
-					<label for="dataFinal">Data final:</label><br/>
-					<!-- Com o FOR eu vinculo o label ao id DATA FINAL abaixo -->
-					<input type= "date" jsf:value= "#{relatorioDeAcessoBean.dataFinal}" id= "dataFinal">
-					<f:convertDateTime type= "localDate" pattern= "yyyy-MM-dd"/>
-					</input>
-		</fieldset>
+		<form jsf:id="form">
+			<fieldset>
+				<legend>Parâmetros de acesso</legend>
+
+				<label for="id">Matrícula:</label><br/>
+				<!-- Com o FOR eu vinculo o label ao id ID abaixo -->
+				<input type="text" jsf:value="#{relatorioDeAcessoBean.matricula}" id="id" /><br/>
+				
+				<label for="dataInicial">Data inicial:</label><br />
+				<!-- Com o FOR eu vinculo o label ao id DATA INICIAL abaixo -->
+				<input type="date" jsf:value="#{relatorioDeAcessoBean.dataInicial}" id="dataInicial">
+				<f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>
+				</input><br/>
+				
+				<label for="dataFinal">Data final:</label><br/>
+				<!-- Com o FOR eu vinculo o label ao id DATA FINAL abaixo -->
+				<input type="date" jsf:value="#{relatorioDeAcessoBean.dataFinal}" id="dataFinal">
+				<f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>
+				</input>
+			</fieldset>
+
+			<br /> <input type="submit" value="Gerar relatório" jsf:action="#{relatorioDeAcessoBean.gerarRelatorio}"/>
+
 		
-		<br/>
-		<input type= "submit" value= "Gerar relatório" jsf:action= "#{relatorioDeAcessoBean.gerarRelatorio}"/>
-		
-		</form>
-		
-		<table>
-			<tr>
-				<td>Id</td>
-				<td>Nome</td>
-				<td>Entrada</td>
-				<td>Saída</td>
-				<td>Duração</td>
-			</tr>
-			
-			<tr>
-				<td>1</td>
-				<td>Leandro</td>
-				<td>05/07/2021 19:00:00</td>
-				<td>05/07/2021 20:00:00</td>
-				<td>01:00:00</td>
-			</tr>
-			
-		</table>
-		
+
+			<!-- Tag panelGroup para redenrizar a tabela -->
+            <h:panelGroup rendered="#{not empty relatorioDeAcessoBean.acessos}">
+			<table>
+				<tr>
+					<th>Matrícula</th>
+					<th>Nome</th>
+					<th>Entrada</th>
+					<th>Saída</th>
+					<th>Duração</th>
+				</tr>
+				<!-- Para deixar a tabela dinamica na pagina, uma especie de for-->
+				<ui:repeat var="a" value="#{relatorioDeAcessoBean.acessos}">
+					<tr>
+						<td>#{a.aluno.matricula}</td>
+						<td>#{a.aluno.nome}</td>
+						<td>
+							<!-- outputText auxilia na formatacao de data e hora personalizada -->
+							<h:outputText value="#{a.entrada}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</td>
+						<td>
+							<h:outputText value="#{a.saida}">
+								<f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</td>
+						<!-- Chamo o metodo la na classe Acesso -->
+						<td>#{a.calcularDuracao()}</td>
+					</tr>
+				</ui:repeat>
+			</table>
+          </h:panelGroup>
+        </form>
 	</ui:define>
 </ui:composition>
 </html>

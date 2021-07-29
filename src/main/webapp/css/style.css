@@ -1,6 +1,8 @@
+/*Configura todas fontes do projeto*/
+
 *
 {
-	font-family: "Arial" /*Com o asterisco eu defino a fonte gerar do sistema.*/
+	font-family: "Arial"; /*Com o asterisco eu defino a fonte gerar do sistema.*/
 }
 
 body
@@ -150,10 +152,12 @@ table
 /*Linhas dos titulos das tabelas.*/
 th
 {
+
 	background-color: #5b7b1d;
 	color: #ffffff;
 	text-transform: uppercase;
 	padding: 3px;
+	
 }
 
 /*Intercalar linhas em impares*/

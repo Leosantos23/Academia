@@ -1,16 +1,19 @@
 package br.com.gerafit.bean;
 
 import java.io.Serializable;
-
 import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.gerafit.acesso.Acesso;
 import br.com.gerafit.service.AlunoService;
+import br.com.gerafit.util.ValidationException;
 
 @Named
 @RequestScoped
@@ -20,6 +23,9 @@ public class RelatorioDeAcessoBean implements Serializable {
 
 	@EJB
 	private AlunoService alunoService;
+
+	@Inject
+	private FacesContext facesContext;
 
 	private String matricula;
 	private LocalDate dataInicial;
@@ -60,7 +66,12 @@ public class RelatorioDeAcessoBean implements Serializable {
 	// Metodo para gerar o relatorio de acessos
 	public String gerarRelatorio() {
 
-		// Aqui ficara a logica futura
+		// Tratar a excessao
+		try {
+			acessos = alunoService.listAcessosAlunos(matricula, dataInicial, dataFinal);
+		} catch (ValidationException e) {
+			facesContext.addMessage(null, new FacesMessage(e.getMessage()));
+		}
 		return null;
 	}
 
