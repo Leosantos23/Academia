@@ -25,17 +25,17 @@
 
 				<!-- Com o FOR eu vinculo o label ao id ID abaixo -->
 				<label for="id">Matrícula:</label><br /> <input type="text"
-					jsf:value="#{pesquisaAlunoBean.matricula}" id="id" /><br />
+					jsf:value="#{pesquisaAlunoBean.matricula}" id="id" jsf:label= "Matrícula" /><br />
 
 				<!-- Com o FOR eu vinculo o label ao id NOME abaixo -->
 				<label for="nome">Nome:</label><br /> <input type="text"
-					jsf:value="#{pesquisaAlunoBean.nome}" id="nome" /><br />
+					jsf:value="#{pesquisaAlunoBean.nome}" id="nome" jsf:label= "Nome" /><br />
 
 				<!-- Com o FOR eu vinculo o label ao id RG abaixo -->
 				<label for="rg">Rg:</label><br /> <input type="text"
-					jsf:value="#{pesquisaAlunoBean.rg}" id="rg" /><br /> <label
+					jsf:value="#{pesquisaAlunoBean.rg}" id="rg" jsf:label= "Rg" /><br /> <label
 					for="numero">Telefone:</label><br /> <input type="tel"
-					jsf:value="#{pesquisaAlunoBean.telefone}" id="numero" />
+					jsf:value="#{pesquisaAlunoBean.telefone}" id="numero" jsf:label= "Telefone" />
 			</fieldset>
 
 			<br /> <input type="submit" value="Pesquisar"
