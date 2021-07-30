@@ -2,7 +2,10 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>GeraFit</display-name>
   <welcome-file-list>
-    <welcome-file>bemVindo.faces</welcome-file>
+  
+  <!-- Chamar a tela de boas vindas antes -->
+  <welcome-file>bemVindo.faces</welcome-file>
+  
   </welcome-file-list>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
@@ -13,4 +16,15 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.faces</url-pattern>
   </servlet-mapping>
+  
+  <!-- Proibir acesso a dados do codigo fonte pelo navegador -->
+  <security-constraint>
+	  <web-resource-collection>
+		  <web-resource-name>xhtml files</web-resource-name>
+		  <url-pattern>*.xhtml</url-pattern>
+	  </web-resource-collection>
+	  
+	  <!-- Dizer quais os perfis que podem acessar os codigos fonte, principalmente se eu deixar a tag vazia. -->
+	  <auth-constraint></auth-constraint>
+  </security-constraint>
 </web-app>
