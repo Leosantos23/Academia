@@ -9,6 +9,10 @@
 
 <!-- Aqui estou dizendo que vou usar o template de layout -->
 <ui:composition template="layout.xhtml">
+
+<!-- Chamo o titulo la na tela de layout -->
+<ui:param name="title" value="Relatorio de acesso"></ui:param>
+
 	<ui:define name="conteudo">
 	
 			<!-- Responsavel na funcao do botao RELATORIO DE ACESSOS,  em ALTERAR ALUNO -->
@@ -16,19 +20,6 @@
 				<f:viewParam name="matricula" value="#{relatorioDeAcessoBean.matricula}" />
 				<f:viewAction action="#{relatorioDeAcessoBean.carregarAluno}" />
 			</f:metadata>
-
-
-		<h1>Relatório de acesso</h1>
-
-		<!--Aqui fica a caixa de mensagens de erro ou sucesso na aplicacao  -->
-		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
-			<div id="infoMessage">
-				<h:messages />
-			</div>
-		</h:panelGroup>
-		
-		<!-- Quebra delinha -->
-		<br />
 		
 		<form jsf:id="form">
 			<fieldset>

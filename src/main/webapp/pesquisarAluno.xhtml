@@ -8,24 +8,16 @@
 
 <!-- Aqui estou dizendo que vou usar o template de layout -->
 <ui:composition template="layout.xhtml">
+
+<!-- Chamo o titulo la na tela de layout -->
+<ui:param name="title" value="Pesquisar aluno"></ui:param>
+
 	<ui:define name="conteudo">
 	
 		<!-- Forcar a limpeza do formulario -->
 		<f:metadata>
 				<f:viewAction action="#{pesquisaAlunoBean.check}" />
 		</f:metadata>
-
-		<!-- Pesquisa de aluno -->
-		<h1>Pesquisar aluno</h1>
-
-		<!--Aqui fica a caixa de mensagens de erro ou sucesso na aplicacao  -->
-		<h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
-			<div id="infoMessage">
-				<h:messages />
-			</div>
-		</h:panelGroup>
-
-		<br />
 
 		<form jsf:id="form">
 			<fieldset>
