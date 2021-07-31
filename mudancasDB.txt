@@ -1,22 +1,22 @@
 EXCLUSAO DO ALUNO
 	
-	Após testes na opçao excluir aluno, foi detectado um erro, pois o mesmo possuia registros de acessos
+	Apos testes na opcao excluir aluno, foi detectado um erro, pois o mesmo possuia registros de acessos
 na academia.
 
-	Portanto, tive de fazer alterações no banco, na tabela ENTRADAS_SAIDAS possui a chave estrangeira de ALUNO, e por isso
-não excluia, pois tinha acessos registrado.
+	Portanto, tive de fazer alteracoes no banco, na tabela ENTRADAS_SAIDAS possui a chave estrangeira de ALUNO, e por isso
+nao excluia, pois tinha acessos registrado.
 
-	Neste caso alterei a tabela ENTRADAS_SAIDAS para exclusões em CASCADE, para quando registros dos quais depender de outros, 
-a exclusão tem que ser em cascata, ou seja, todos registros de acessos de alunos seriam excluidos juntamente com o ALUNO.
+	Neste caso alterei a tabela ENTRADAS_SAIDAS para exclusoes em CASCADE, para quando ALUNO dos quais depender de ACESSOS, 
+a exclusao tem que ser em cascata, ou seja, todos registros de acessos de alunos seriam excluidos juntamente com o ALUNO.
 
-	Dentro do MySQL Workbench, clique botão direito tabela ENTRADA_SAIDAS/Alter Table/Foreidn Keys/Clica nela/Foreing Keys Options/On Delete/
+	Dentro do MySQL Workbench, clique botao direito tabela ENTRADA_SAIDAS/Alter Table/Foreidn Keys/Clica nela/Foreing Keys Options/On Delete/
 CASCADE/ APPLY/ APPLY.
 	
 
-RESTRIÇÃO NO RG (Pois deve ser unico, igual a cpf)
+RESTRICAO NO RG (Pois deve ser unico, igual a cpf)
 
-	Dentro do MySQL Workbench, clique botão direito tabela ALUNO/Alter Table/Indexeres/Criar um novo INDEX/ UK_ALUNO_RG/ no Tipo/ UNIQUE
-	ir na caixinha RG e marcar/ APLLY/ APPLY/ 
+	Dentro do MySQL Workbench, clique botao direito tabela ALUNO/Alter Table/Indexeres/Criar um novo INDEX/ UK_ALUNO_RG/ no Tipo/ UNIQUE
+	ir na caixinha RG e marcar/ APLLY/ APPLY.
 
 
 	

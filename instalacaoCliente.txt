@@ -1,0 +1,20 @@
+INTRUCOES PARA INSTALACAO NA MAQUINA DO CLIENTE
+
+* Gerando o arquivo WAR para instalacao no servidor do cliente.
+
+* Eclipse aberto, com o servidor ligado faca:
+
+1- Botao direito no projeto / Export / War file / Web project: GeraFit / Destination: "D:\Dowloads\Gerafit.war" 
+/ Marque : Optimize for a specific server runtime / Finish.
+
+* Apos a exportacao, estara o arquivo GeraFit.war, porque arquivos java .war e .jar,  e exclusivo do java, se tiver
+curiosidade, duplique a arquivo .war e altere a extensao para .zip, dai sim tera acesso a todos arquivo exclusivos
+do CLIENTE, as telas, arquivos .class, tudo para rodar em um servidor.
+
+RODAR A APLICACAO NO SERVIDOR FORA DO ECLIPSE
+
+1- Na pasta do servidor Wildfly 23 (O meu que usei) / bin / standalone.bat ou so standalone / clique duas x sobre ele / inicializara
+o servidor / teste em qualquer navegador: localhost:8080 / porem ainda nao rodara a aplicacao, pois ainda nao instalei ela no servidor /
+ainda na pasta do Wildfly / pasta standalone / deployments / se quizer leia o README.txt / ctrl + c, ctrl + v em GeraFit.war / automaticamente
+o console do servidor instalara a aplicacao / pronto, agora pode rodar em qualquer navegador do cliente.
+

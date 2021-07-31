@@ -1,0 +1,11 @@
+===========================================================================================================================================
+INFORMAÇÕES DE CONEXÃO COM BANCO DE DADOS
+===========================================================================================================================================
+
+Driver Class Name: 	com.mysql.cj.jdbc.Driver
+JNDI Name:		java:/jdbc/GerafitDS
+URL:			jdbc:mysql://localhost:3306/gerafit?useLegacyDatetimeCode=false&serverTimezone=America/Sao_Paulo&useSSL=false
+Username:		gerafit
+Password:		gerafitdb
+
+===========================================================================================================================================
